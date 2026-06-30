@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head><title>Distributed Search</title></head>
+  <body>
+    <h1>Distributed Search</h1>
+    <p>
+      Distributed search systems split an inverted index across multiple shards.
+      Query coordinators send requests to each shard, merge partial scores, and
+      return the highest ranked documents. Search infrastructure often combines
+      text relevance, link analysis, caching, and concurrent execution.
+    </p>
+    <p>
+      A practical engine may use <a href="mapreduce.html">MapReduce</a> to build
+      indexes and <a href="tf_idf.html">TF-IDF</a> to score matching terms.
+      Ranking can also use <a href="pagerank.html">PageRank</a> authority.
+    </p>
+  </body>
+</html>
+

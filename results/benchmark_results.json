@@ -1,0 +1,20 @@
+{
+  "queries": [
+    "distributed search",
+    "page rank",
+    "python web api"
+  ],
+  "runs_per_query": 30,
+  "workers": 4,
+  "sequential": {
+    "avg_ms": 0.217,
+    "p50_ms": 0.181,
+    "p95_ms": 0.518
+  },
+  "threaded": {
+    "avg_ms": 2.231,
+    "p50_ms": 1.652,
+    "p95_ms": 4.814
+  },
+  "latency_reduction_percent": -926.11
+}

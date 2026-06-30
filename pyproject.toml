@@ -1,0 +1,26 @@
+[project]
+name = "distributed-wikipedia-search"
+version = "0.1.0"
+description = "A local distributed-style Wikipedia search engine using MapReduce, TF-IDF, PageRank, and a threaded FastAPI query layer."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "fastapi>=0.115.0",
+    "pydantic>=2.8.0",
+    "uvicorn[standard]>=0.30.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+]
+
+[project.scripts]
+search-engine = "search_engine.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
