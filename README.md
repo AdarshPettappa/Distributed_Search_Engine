@@ -6,7 +6,27 @@ The default repo ships with a small sample corpus so the system runs immediately
 
 ## Architecture
 
-![Distributed Wikipedia Search Engine architecture](docs/architecture-screenshot.png)
+```mermaid
+flowchart LR
+    Corpus[Wikipedia HTML/XML Corpus] --> Loader[Crawler / Loader]
+    Loader --> Parser[BeautifulSoup Parser]
+    Parser --> MR[MapReduce Pipeline]
+    MR --> TFIDF[TF-IDF Inverted Index]
+    MR --> Graph[Link Graph]
+    Graph --> PR[PageRank]
+    TFIDF --> Store[File-backed Index Store]
+    PR --> Store
+    Store --> API[FastAPI Query Coordinator]
+    API --> S0[Shard 0]
+    API --> S1[Shard 1]
+    API --> S2[Shard 2]
+    API --> S3[Shard 3]
+    S0 --> Merge[Rank Merge]
+    S1 --> Merge
+    S2 --> Merge
+    S3 --> Merge
+    Merge --> Client[JSON Search Results]
+```
 
 ## MapReduce Pipeline
 
