@@ -2,8 +2,6 @@
 
 A portfolio-grade search infrastructure project that indexes Wikipedia-style documents with a local multi-stage MapReduce pipeline, ranks results with TF-IDF plus PageRank, and serves distributed-style queries through a multi-threaded FastAPI REST API.
 
-The default repo ships with a small sample corpus so the system runs immediately. The same ingestion command accepts a larger Wikipedia export directory and a `--limit 25000` flag to reproduce the 25,000-document indexing workflow.
-
 ## Architecture
 
 ```mermaid
@@ -99,7 +97,7 @@ docker build -t distributed-wikipedia-search .
 docker run --rm -p 8000:8000 distributed-wikipedia-search
 ```
 
-## Building a 25,000 Document Index
+## Building a Document Index
 
 Place Wikipedia HTML/XML/text documents in a local directory, then run:
 
